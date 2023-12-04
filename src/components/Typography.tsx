@@ -1,21 +1,29 @@
-/* eslint-disable react/display-name */
-import { FC, PropsWithChildren } from "react";
-import { withVariants } from "./withVariants";
+import { cn } from "@/utils";
+import { cva } from "class-variance-authority";
+import { FC, HTMLAttributes, PropsWithChildren } from "react";
 
-type TypographyVariant = "H1" | "H2" | "P";
+const typography = cva("text-base", {
+  variants: {
+    variant: {
+      h1: "text-3xl",
+      h2: "text-2xl",
+      p: "text-base",
+    },
+  },
+  defaultVariants: {
+    variant: "p",
+  },
+});
 
-type TypographyBaseProps = PropsWithChildren;
+interface TypographyProps extends HTMLAttributes<HTMLParagraphElement> {
+  variant?: "h1" | "h2" | "p";
+}
 
-const TypographyVariants: Record<TypographyVariant, FC<TypographyBaseProps>> = {
-  H1: ({ children }) => {
-    return <h1 className="text-3xl">{children}</h1>;
-  },
-  H2: ({ children }) => {
-    return <h2 className="text-2xl">{children}</h2>;
-  },
-  P: ({ children }) => {
-    return <p className="text-lg">{children}</p>;
-  },
+export const Typography: FC<PropsWithChildren<TypographyProps>> = ({
+  variant,
+  className,
+  children,
+  ...props
+}) => {
+  return <p className={cn(typography({ variant, className }))}>{children}</p>;
 };
-
-export const Typography = withVariants(TypographyVariants);
