@@ -17,13 +17,5 @@
 }
 
 body {
-  background-color: #1f2a37;
-  color: white;
+  background-color: rgb(250 250 250);
 }
-
-header {
-  backdrop-filter: blur(20px);
-  border: 2px solid rgba(255, 255, 255, 0.125);
-  
-}
-
