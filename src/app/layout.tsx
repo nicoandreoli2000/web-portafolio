@@ -17,18 +17,30 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <header className="flex justify-content-between p-4">
-          <nav className="flex-grow">
-            <ul className="flex">
-              <li className="mr-4">Home</li>
-              <li className="mr-4">About</li>
-              <li className="mr-4">Projects</li>
-              <li className="mr-4">Blog</li>
-            </ul>
-          </nav>
-          <p>Nicolás Andreoli</p>
+        <header
+          className="flex gap-40 justify-between items-center text-xs py-4 px-10  w-50 rounded-full"
+          style={{
+            position: "fixed",
+            top: "20px",
+            transform: "translateX(50vw) translateX(-50%)",
+          }}
+        >
+          <h1 className="text-2xl">Nicolas Andreoli</h1>
+          <div className="flex gap-3.5 justify-between whitespace-nowrap text-lg">
+            <a href="#about">About</a>
+            <a href="#career">Career</a>
+            <a href="#contact">Contact</a>
+          </div>
         </header>
         {children}
+        <footer className="flex flex-col gap-2 p-4 w-full items-center">
+          <div className="flex gap-4">
+            <p>LinkedIn</p>
+            <p>GitHub</p>
+            <p>Email</p>
+          </div>
+          <p>© {new Date().getFullYear()} Nicolas Andreoli</p>
+        </footer>
       </body>
     </html>
   );
