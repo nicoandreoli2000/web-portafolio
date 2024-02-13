@@ -1,17 +1,87 @@
+import Image from "next/image";
+
 /* eslint-disable react/no-unescaped-entities */
 export default function Home() {
   return (
     <main className="flex flex-col h-screen">
-      <section id="about" className="h-screen flex flex-col gap-10">
-        <h2 className="text-3xl text-white">
-          I'm{" "}
-          <strong className="text-6xl font-bold tracking-tighter text-gradient">
-            Nicolas Andreoli
-          </strong>
-        </h2>
-        <p className="text-white">Frontend Web Developer & React Expert</p>
+      <section id="about" className="h-screen flex items-center justify-around">
+        <div className="flex flex-col items-center gap-10">
+          <div style={{ right: "50px", position: "relative" }}>
+            <div
+              className="w-8 h-8"
+              style={{
+                background: "#6A7D9C",
+                animation: "linear infinite 6s rotate",
+              }}
+            />
+            <div
+              className="w-6 h-6 rounded-full"
+              style={{
+                position: "absolute",
+                top: "-5px",
+                right: "-40px",
+                background: "var(--primary)",
+                animation: "ease-in infinite 3s moveX",
+              }}
+            />
+
+            <div
+              className="w-12 h-2"
+              style={{
+                position: "absolute",
+                bottom: "-5px",
+                right: "-90px",
+                background: "#9C6A7D",
+                animation: "ease-out infinite 3s moveXinverted",
+              }}
+            />
+          </div>
+          <style>
+            {`
+              @keyframes rotate {
+                from {
+                  transform: rotate(0deg);
+                }
+                to {
+                  transform: rotate(360deg);
+                }
+              }
+
+              @keyframes moveX {
+                0%, 100% {
+                  transform: translateX(0);
+                }
+                50% {
+                  transform: translateX(40px);
+                }
+              }
+
+              @keyframes moveXinverted {
+                0%, 100% {
+                  transform: translateX(0);
+                }
+                50% {
+                  transform: translateX(-30px);
+                }
+              }
+
+            `}
+          </style>
+          <h2 className="text-3xl text-white">
+            I'm{" "}
+            <strong
+              className="text-6xl font-bold tracking-tighter"
+              style={{ color: "var(--primary)" }}
+            >
+              Nicolas Andreoli
+            </strong>
+          </h2>
+          <p className="text-2xl text-white">
+            Frontend Web Developer & React Expert
+          </p>
+        </div>
       </section>
-      <section
+      {/* <section
         id="about"
         className="h-screen flex flex-col gap-2 pb-40"
         style={{ background: "var(--bg-secondary)" }}
@@ -47,7 +117,7 @@ export default function Home() {
             LinkedIn
           </a>
         </p>
-      </section>
+      </section> */}
     </main>
   );
 }

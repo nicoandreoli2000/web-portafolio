@@ -18,8 +18,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <header className="flex gap-40 justify-between items-center text-xs p-8 w-full">
-          <div style={{ position: "relative" }}>
+        {/* <header className="flex gap-40 justify-between items-center text-xs p-8 w-full"> */}
+        {/* <div style={{ position: "relative" }}>
             <div
               className="w-8 h-8"
               style={{
@@ -79,16 +79,7 @@ export default function RootLayout({
               }
 
             `}
-          </style>
-          <div
-            className="flex gap-3.5 justify-between whitespace-nowrap text-base"
-            style={{ color: "var(--gray2)" }}
-          >
-            <a href="#about">About</a>
-            <a href="#career">Career</a>
-            <a href="#contact">Contact</a>
-          </div>
-        </header>
+          </style> */}
         {children}
       </body>
     </html>
