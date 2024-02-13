@@ -18,23 +18,78 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <header className="flex gap-40 justify-between items-center text-xs py-4 px-10 w-full">
-          <img className="w-[52px]" src="/test1.svg" alt="Logo" />
-          <div className="flex gap-3.5 justify-between whitespace-nowrap text-sm font-light">
+        <header className="flex gap-40 justify-between items-center text-xs p-8 w-full">
+          <div style={{ position: "relative" }}>
+            <div
+              className="w-8 h-8"
+              style={{
+                background: "#6A7D9C",
+                animation: "linear infinite 6s rotate",
+              }}
+            />
+            <div
+              className="w-6 h-6 rounded-full"
+              style={{
+                position: "absolute",
+                top: "-5px",
+                right: "-40px",
+                background: "#9C6A7D",
+                animation: "ease-in infinite 3s moveX",
+              }}
+            />
+
+            <div
+              className="w-12 h-2"
+              style={{
+                position: "absolute",
+                bottom: "-5px",
+                right: "-90px",
+                background: "var(--primary)",
+                animation: "ease-out infinite 3s moveXinverted",
+              }}
+            />
+          </div>
+          <style>
+            {`
+              @keyframes rotate {
+                from {
+                  transform: rotate(0deg);
+                }
+                to {
+                  transform: rotate(360deg);
+                }
+              }
+
+              @keyframes moveX {
+                0%, 100% {
+                  transform: translateX(0);
+                }
+                50% {
+                  transform: translateX(40px);
+                }
+              }
+
+              @keyframes moveXinverted {
+                0%, 100% {
+                  transform: translateX(0);
+                }
+                50% {
+                  transform: translateX(-30px);
+                }
+              }
+
+            `}
+          </style>
+          <div
+            className="flex gap-3.5 justify-between whitespace-nowrap text-base"
+            style={{ color: "var(--gray2)" }}
+          >
             <a href="#about">About</a>
             <a href="#career">Career</a>
             <a href="#contact">Contact</a>
           </div>
         </header>
         {children}
-        {/* <footer className="flex flex-col gap-2 p-4 w-full items-center">
-          <div className="flex gap-4">
-            <p>LinkedIn</p>
-            <p>GitHub</p>
-            <p>Email</p>
-          </div>
-          <p>© {new Date().getFullYear()} Nicolas Andreoli</p>
-        </footer> */}
       </body>
     </html>
   );
